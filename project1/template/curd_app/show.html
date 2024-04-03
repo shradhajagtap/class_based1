@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+<body>
+        <h2 class="text-primary text-center"> Information about Electronic Shop  </h2>
+        <table class="table m-auto ">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> Shop Owner </th>
+                    <th> Electronic Items </th>
+                    <th> Item Price </th>
+                    <th> Shop Address </th>
+                    <th> Customer Name</th>
+                    <th> Customer Mobile No </th>
+                    <th> Shop Opening Date </th>
+                    <th colspan="2" class="text-center"> Action </th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for electricshop in obj %}
+                    <tr>
+                        <td>{{ electricshop.id }} </td>
+                        <td>{{ electricshop.shop_owner  }}</td>
+                        <td>{{ electricshop.electronic_items  }}</td>
+                        <td>{{ electricshop.item_price  }}</td>
+                        <td>{{ electricshop.shop_address }}</td>
+                        <td>{{ electricshop.customer_name  }}</td>
+                        <td>{{ electricshop.customer_mobile_no  }}</td>
+                        <td>{{ electricshop.shop_opening_date  }}</td>
+                        <td>
+                            <a href="{% url 'update_url'  electricshop.id %}">
+                                <button class="btn btn-outline-primary col-12"><i class="bi bi-vector-pen"></i> &nbsp Update </button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{% url 'delete_url' electricshop.id %}">
+                                <button class="btn btn-outline-danger col-12"><i class="bi bi-trash"></i> &nbsp Delete </button>
+                            </a>
+
+                    </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+</body>
+</html>
